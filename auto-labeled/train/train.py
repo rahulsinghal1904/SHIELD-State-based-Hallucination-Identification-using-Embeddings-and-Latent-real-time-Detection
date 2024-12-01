@@ -9,13 +9,13 @@ from dataset import TrainDataset
 import json
 import numpy as np
 from sklearn.metrics import accuracy_score
-import random
+import secrets
 
 def setup_seed(seed):
      torch.manual_seed(seed)
      torch.cuda.manual_seed_all(seed)
      np.random.seed(seed)
-     random.seed(seed)
+     secrets.SystemRandom().seed(seed)
      torch.backends.cudnn.deterministic = True
 
 setup_seed(0)
